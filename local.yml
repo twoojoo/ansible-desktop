@@ -11,6 +11,7 @@
 					- xbindkeys
 					- polybar
 					- rofi
+					- rsync
 					- nm-applet
 					- cbatticon
 					- nano
@@ -40,6 +41,11 @@
 			git:
 		    	repo: https://github.com/twoojoo/dotfiles.git
 		    	dest: ~/Projects
+
+		- name: Sync dotfiles
+			synchronize
+				src: ~/Projects/dotfiles/*
+				dest: ~/
 
 		- name: Create SmartPricing/sources directory
 			file:
