@@ -4,33 +4,49 @@
 	become: true #enables sudo
 
 	tasks:
+
+    - name: update arch
+      pacman:
+        update_cache: yes
+        upgrade: yes
+
 		- name: install packages
 			pacman:
 				name: 
+					- alacritty
+					- beekeeper-studio
+					- cbatticon
+					- chromium
+					- code
+					- devtools
+					- docker
+					- doctl
+					- curl
+					- git
+					- htop
 					- i3
-					- xbindkeys
+					- yay
+					- yakuake
+					- kubectl
+					- lens-desktop
+					- nano
+					- ncdu
+					- nm-applet
+					- openssh
 					- polybar
 					- rofi
 					- rsync
-					- nm-applet
-					- cbatticon
-					- nano
-					- curl
-					- htop
-					- git
-					- yay
+					- sublime-text-4
 					- tmux
 					- tmuxinator
-					- docker
-					- kubectl
-					- chromium
-					- beekeeper-studio
-					- alacritty
-					- yakuake
-					- doctl
-					- lens-desktop
-					- sublime-text-4
-					- code
+					- trash-cli
+					- xbindkeys
+
+		- name: enable and start ssh service
+      systemd:
+        name: sshd
+        enabled: yes
+        state: started
 
 		- name: Create Projects directory
 			file:
