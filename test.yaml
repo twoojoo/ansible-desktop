@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  become: true #enables sudo
+
+  tasks:
+    - name: install packages
+      pacman:
+        name: 
+          - i3
+          - tmux

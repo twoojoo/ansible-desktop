@@ -5,7 +5,7 @@
 
 	tasks:
 		- name: install packages
-			package:
+			pacman:
 				name: 
 					- i3
 					- xbindkeys
