@@ -62,7 +62,12 @@
 
 		- name: Create Projects directory
 			file:
-				path: ~/Projects
+				path: /home/{{ ansible_user }}/Projects
+				state: directory
+
+		- name: Create Scripts directory
+			file:
+				path: /home/{{ ansible_user }}/Scripts
 				state: directory
 
 		- name: Clone dotfiles repository
@@ -70,10 +75,15 @@
 	    	repo: https://github.com/twoojoo/dotfiles.git
 	    	dest: ~/Projects
 
+	  - name: Clone rofi-utils repository
+			git:
+	    	repo: https://github.com/twoojoo/rofi-utils.git
+	    	dest: /home/{{ ansible_user }}/Scripts
+
 		- name: Sync dotfiles
 			synchronize:
-				src: ~/Projects/dotfiles/*
-				dest: ~/
+				src: /home/{{ ansible_user }}/Projects/dotfiles/*
+				dest: /home/{{ ansible_user }}
 
 		- name: Create SmartPricing/sources directory
 			file:
