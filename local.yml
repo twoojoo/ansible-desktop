@@ -48,6 +48,18 @@
         enabled: yes
         state: started
 
+    - name: enable and start docker service
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: add the user to docker group
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+
 		- name: Create Projects directory
 			file:
 				path: ~/Projects
@@ -55,8 +67,8 @@
 
 		- name: Clone dotfiles repository
 			git:
-		    	repo: https://github.com/twoojoo/dotfiles.git
-		    	dest: ~/Projects
+	    	repo: https://github.com/twoojoo/dotfiles.git
+	    	dest: ~/Projects
 
 		- name: Sync dotfiles
 			synchronize:
