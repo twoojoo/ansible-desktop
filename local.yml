@@ -41,15 +41,11 @@
 		    	repo: https://github.com/twoojoo/dotfiles.git
 		    	dest: ~/Projects
 
-		- name: Create SmartPricing directory
-			file:
-				path: ~/SmartPricing
-				state: directory
-
 		- name: Create SmartPricing/sources directory
 			file:
 				path: ~/SmartPricing/sources
 				state: directory
+				recurse: yes
 
 		
 
