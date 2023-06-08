@@ -7,6 +7,6 @@
   - name: install packages
   	package:
   		name: 
-	  		- htop
-	  		- tmux
-	  		- docker
+			- htop
+			- tmux
+			- docker
