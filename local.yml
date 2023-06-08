@@ -43,7 +43,7 @@
 		    	dest: ~/Projects
 
 		- name: Sync dotfiles
-			synchronize
+			synchronize:
 				src: ~/Projects/dotfiles/*
 				dest: ~/
 
